@@ -60,22 +60,18 @@ helpMess = """Usage: alko.py p v bw gend target
 \t       gend: biological gender of drinker: m or f
 \t       target: desired blood alcohol level in parts per thousand"""
 
-# if len(sys.argv) != 5:
-#     print helpMess
-#     sys.exit()
-
-try:
-    (lol, p, v, bw, gend, target) = sys.argv
-#    break
-except ValueError:
+if len(sys.argv) != 5:
     print helpMess
     sys.exit()
 
-#p i prosent, v i cl
-
-p = float(p)
-v = float(v)
-bw = float(bw)
-target = float(target)
+try:
+    (lol, p, v, bw, gend, target) = sys.argv
+    p = float(p)
+    v = float(v)
+    bw = float(bw)
+    target = float(target)
+except ValueError:
+    print helpMess
+    sys.exit()
 
 promille(p,v,bw,gend,target)
